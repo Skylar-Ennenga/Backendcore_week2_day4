@@ -34,16 +34,15 @@ import re
 names = ["Abraham Lincoln", "Andrew P Garfield", "peter pan", "Connor Milliken", "Jordan Alexander Williams", "Madonna", "programming is cool"]
 
 def name_verfiication (names): #Function takes in names
-    pattern = re.compile(r"([A-Z][a-z]+) ([A-z]* )?([A-Z][a-z]+)") 
-    # pattern = re.compile(r"^[A-Z][a-z]*(?: [A-Z](?:[a-z]*)?)? [A-Z][a-z]*$") #Pattern that we will be checking against ^ = Start of string [A-Z] = first letter Capital [a-z] = preceding lower letters * = 0 or more occurances of a lower case letter
-    # (?: [A-Z] = Accounts for the occurance of just a capital middle initial (?: [A-Z](?:[a-z]*)?)? = accounts for the possiblity of a middle name with a capital - "?" = mean that its not required but accounted for if there
+    pattern = re.compile(r"([A-Z][a-z]*) ([A-z]* )?([A-Z][a-z]+)") 
+     # Pattern that we will be checking against ^ = Start of string [A-Z] = first letter Capital [a-z] = preceding lower letters * = 0 or more occurances of a lower case letter
+    # ([A-z]* )? - Check to see the same as the first but the ? makes it optional (had to add a space in the bracket because it was countring it as 2 space if nothing was there)
     # [A-Z][a-z]* = Same as first word $ = asserts the end of the string
-    
-    for name in names:                                                       
-        if re.match(pattern, name):                                          
-            print(name)
+    for name in names: #For each name in the list                                                      
+        if re.match(pattern, name): # If the name equals that pattern                                     
+            print(name) #Pring out the name
         else:
-            print("Invalid Name")
+            print("Invalid Name") # otherwide print invalid
 
     
     
